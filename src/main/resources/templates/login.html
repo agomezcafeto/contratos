@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example </title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/login.css" />
+        <script src="../js/jquery.min.js" />
+        <script src="../bootstrap/js/bootstrap.min.js" />
+    </head>
+    <body>
+    <div class="container">
+
+        <div class="row" id="pwd-container">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <section class="login-form">
+
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Usuario y/o contraseña inválidos.
+                    </div>
+                    <div class="alert alert-info" th:if="${param.logout}">
+                        Ha cerrardo sesión exitosamente.
+                    </div>
+
+                    <form name='loginForm'
+                          th:action="@{/login}" method='POST' role="login">
+
+                        <img class="img-responsive logo-login" src="../images/remington_logo.JPG" />
+                        <input type="text" name="username" placeholder="Username" required="true" class="form-control input-lg" />
+                        <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password" required="true" />
+                        <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+
+                    </form>
+
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+    </body>
+</html>

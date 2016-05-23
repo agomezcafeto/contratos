@@ -1,0 +1,74 @@
+#base-header {
+    text-align : right;
+    padding-bottom : 20px;
+    margin-bottom : 0px;
+    height: 155px;
+}
+
+#logo-header {
+    width: 35%;
+    height: 22%;
+    position: absolute;
+    margin-top: -55px;
+}
+
+#logout-button {
+    margin-bottom: 4%;
+    margin-right : 35px;
+    background-color : #114470;
+    border-color : #114470;
+}
+
+#home-button {
+    margin-bottom: 4%;
+    background-color : #114470;
+    border-color : #114470;
+}
+
+#home-button:hover {
+    background-color : #1d71b5;
+}
+
+#logout-button:hover {
+    background-color : #1d71b5;
+}
+
+#welcome-message {
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}

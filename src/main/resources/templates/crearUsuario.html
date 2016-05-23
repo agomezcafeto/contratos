@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Plataforma de gestión de contratos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/crearUsuario.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js" ></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+        background-color: #f2f2f2;
+        padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <br/>
+
+    <div id ="base-header" class="page-header">
+        <img id = "logo-header" class="img-responsive logo-login" src="../images/remington_logo.JPG" />
+        <a id = "home-button" th:href="@{/home}" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-home"></span> Inicio</a>
+        <a id = "logout-button" href="javascript: document.logoutForm.submit()" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+        </a>
+    </div>
+
+    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+        <input hidden="true" type="submit" value="Sign Out"/>
+    </form>
+
+    <p th:text="${messages}"></p>
+
+    <div class="container" id="crear-usuario-container">
+        <form role="form" th:action="@{/crearUsuario}" method="post">
+            <div class="col-lg-6 container-form">
+                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Campos requeridos</strong></div>
+                <div class="form-group">
+                    <label for="InputName">Ingrese su nombre completo</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Nombre completo" required="true" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputUsername">Ingrese su nombre de usuario</label>
+                    <div class="input-group">
+                        <input th:field="${usuario.username}" type="text" class="form-control" id="InputUsername" name="InputUsername" placeholder="Nombre de usuario" required="true"/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputPassword">Ingrese contraseña</label>
+                    <div class="input-group">
+                        <input th:field="${usuario.password}" type="password" class="form-control" id="InputPassword" name="InputPassword" placeholder="Contraseña" required="true"/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dependencia-sel">Seleccione la dependencia del usuario:</label>
+                    <select class="form-control" id="dependencia-sel">
+                        <option>dep 1</option>
+                        <option>dep 2</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="grupo-sel">Seleccione el rol del usuario:</label>
+                    <select th:field="${rolUsuario.rol}" class="form-control" id="grupo-sel">
+                        <option value="ROLE_ADMIN">Administrador</option>
+                        <option value="ROLE_USER">Usuario</option>
+                    </select>
+                </div>
+
+                <input type="submit" name="submit" id="submit" value="Registrar" class="btn btn-info pull-right"/>
+            </div>
+        </form>
+                    <!--<div class="alert alert-success">-->
+                        <!--<strong><span class="glyphicon glyphicon-ok"></span> Success! Message sent.</strong>-->
+                    <!--</div>-->
+                    <!--<div class="alert alert-danger">-->
+                        <!--<span class="glyphicon glyphicon-remove"></span><strong> Error! Please check all page inputs.</strong>-->
+                    <!--</div>-->
+    </div>
+
+
+
+
+
+
+</body>
+</html>
